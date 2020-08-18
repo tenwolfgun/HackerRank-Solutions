@@ -1,6 +1,12 @@
 fun main() {
 
-    val grades: Array<Int> = arrayOf(4, 73, 67, 38, 33)
+    val gradesCount = readLine()!!.trim().toInt()
+
+    val grades = Array(gradesCount) { 0 }
+    for (i in 0 until gradesCount) {
+        val gradesItem = readLine()!!.trim().toInt()
+        grades[i] = gradesItem
+    }
 
     val result = gradingStudents(grades)
 
@@ -10,7 +16,7 @@ fun main() {
 
 
 fun gradingStudents(grades: Array<Int>): Array<Int> {
-    val copyGrades = grades.drop(1).toMutableList()
+    val copyGrades = grades.drop(0).toMutableList()
     for (i in copyGrades.indices) {
         if (copyGrades[i] >= 38) {
             if (copyGrades[i] % 5 > 2) {
